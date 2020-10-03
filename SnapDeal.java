@@ -8,6 +8,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SnapDeal {
 	
+	/* *******************NOT WORKING ********************* */
+	
 	public static void main(String[] args) throws InterruptedException {
 	
 	/* Set up the WebDriver */

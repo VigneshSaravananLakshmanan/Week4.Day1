@@ -13,6 +13,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Jquery {
 	
+	/* *******************NOT WORKING ********************* */
+	
 	public static void main(String[] args) throws InterruptedException
 	{
 	
