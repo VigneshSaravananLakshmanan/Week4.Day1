@@ -7,8 +7,10 @@ import org.openqa.selenium.interactions.Actions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DragAndDrop {
+	
+  
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		/* *******************NOT WORKING ********************* */
 		
@@ -25,19 +27,34 @@ public class DragAndDrop {
 		/* Launch the URL */
 		driver.get("https://jqueryui.com/droppable/");
 		
+		/* Frames can be identified using ID, index, WebElement, name */
+		WebElement iFrame = driver.findElementByXPath("//iframe[@class='demo-frame']");
 		
-		/* Identifying the Source */
-		WebElement source = driver.findElementById("draggable");
-		
-		/* identifying the target */
-		WebElement target = driver.findElementById("droppable");
+		/* Switch the driver control to Frame */
+		driver.switchTo().frame(iFrame);
 		
 		
-		/* Invoking the Class */
-		Actions builder = new Actions(driver);
+			/* Identifying the Source */
+			WebElement source = driver.findElementById("draggable");
 		
-		builder.dragAndDrop(source, target).perform();
+			/* identifying the target */
+			WebElement target = driver.findElementById("droppable");
 		
+			
+			Thread.sleep(2000);
+		
+			/* Invoking the Class - Actions to perform User controls */
+			Actions builder = new Actions(driver);
+			
+			
+		    /* The action is to drag and drop the source to the drop position. All "actions" should end calling 'perform()'method
+		     * to enable the driver to perform action
+		     */
+		    builder.dragAndDrop(source, target).perform();
+		    
+		    driver.switchTo().parentFrame();
+		    
+		    driver.close();
 		
 		
 	
